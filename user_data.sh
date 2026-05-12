@@ -15,5 +15,5 @@ pip3 install flask
 
 ### 5. Run the application in the background
 ### Implement "nohup" 
-### Redirect output to a log file 
+### Redirect output to log files 
 nohup python3 app.py > /home/ec2-user/deployment.log 2>&1 &
