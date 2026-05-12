@@ -1,19 +1,19 @@
 #!/bin/bash
+### 1. Updates and installs modified packagees
 yum update -y
-yum install -y nginx
-systemctl enable nginx
+yum install -y python3 pip git
 
-# Create custom index.html
-cat > /usr/share/nginx/html/index.html <<'EOF'
-<!DOCTYPE html>
-<html lang="en">
-  <head></head>
-  <body>
-    <h1>Hello, World!</h1>
-  </body>
-</html>
+### 2. User directory setup
+cd /home/ec2-user
 
-EOF
+### 3. Clone forked repository
+git clone https://github.com/GodEmperorKing/2025dec22.git
+cd 2025dec22
 
-# Start nginx
-systemctl start nginx
+### 4. Install "Flask" 
+pip3 install flask
+
+### 5. Run the application in the background
+### Implement "nohup" 
+### Redirect output to a log file 
+nohup python3 app.py > /home/ec2-user/deployment.log 2>&1 &
