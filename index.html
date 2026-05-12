@@ -5,25 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
-    <h1 id="greeting-display"> 
+<body>
+    <h1 id="greeting-display">
+
     <script>
-      console.log("hello class")
+        async function greet() {
+            try {
+                const response = await fetch('/'); 
+                const message = await response.text();
+                document.getElementById('greeting-display').innerText = message;
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById('greeting-display').innerText = "Backend Offline";
+            }
+        }
 
-      async function greet() {
-    try {
-        const response = await fetch('/'); 
-        const message = await response.text();
-        
-        document.getElementById('greeting-display').innerText = message;
-    } catch (error) {
-        console.error("Error fetching from backend:", error);
-        return "Backend disconnected!";
-    }
-}
-
-      let result = greet()
-      console.log(result)
+        greet();
     </script>
-  </body>
+</body>
 </html>
