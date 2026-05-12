@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ### 1. Updates and installs modified packages
 yum update -y
 yum install -y python3 pip git
