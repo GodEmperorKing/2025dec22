@@ -1,7 +1,7 @@
 print("Hello, World!")
 
-def greet():
-    return "Hello, class!"
+def greet(name="class"):
+    return f"Hello, {name}!"
 
 result = greet()
 
